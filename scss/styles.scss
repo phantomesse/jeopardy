@@ -1,9 +1,54 @@
 html,
 body {
-  background: #174EA6;
+  background: #202124;
   border: 0;
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+main {
+  $gap: 8px;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: $gap;
+  height: 100%;
+  padding: $gap;
+  width: 100%;
+}
+
+.category,
+.question {
+  align-items: center;
+  display: flex;
+  background: #174EA6;
+  color: #FCC934;
+  justify-content: center;
+}
+
+.question {
+  cursor: pointer;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background:#174EA6;
+  width: 100%;
+  height: 100%;
+
+  .hidden {
+    background: #000;
+    display: block;
+    pointer-events: none;
+    width: 30%;
+    user-select: none;
+  }
 }

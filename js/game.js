@@ -5,7 +5,11 @@ class Game {
     const self = this;
     Game._loadQuestions().then(function(questions) {
       const categories = Game._sortQuestionsIntoCategories(questions);
-      console.log(categories);
+      const container = $('main')
+      .css({'grid-template-rows' : `repeat(${categories.length}, 1fr)`});
+      for (let category of categories) {
+        category.render(container);
+      }
     });
   }
 
