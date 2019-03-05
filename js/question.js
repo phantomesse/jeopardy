@@ -13,23 +13,35 @@ class Question {
   render(container) {
     const self = this;
     const popup = $('<div>').addClass('popup');
-    $('<p>').text(this.question).appendTo(popup);
-    const answer = $('<p>').addClass('hidden').text(this.answer).appendTo(popup);
-    const popupButton = $('<button>').text('Reveal answer').appendTo(popup)
-    .click(function() {
-      if ($(this).text() === 'Close') {
-        popup.remove();
-      }
-      answer.removeClass('hidden');
-      $(this).text('Close');
-    });
+    $('<p>')
+      .text(this.question)
+      .appendTo(popup);
+    const answer = $('<p>')
+      .addClass('hidden')
+      .text(this.answer)
+      .appendTo(popup);
 
     const element = $('<div>')
-        .addClass('question')
-        .text(`\$${this.score}`)
-        .appendTo(container)
-        .click(function() {
-          popup.appendTo($('body'));
-        });
+      .addClass('question')
+      .text(`\$${this.score}`)
+      .appendTo(container)
+      .click(function() {
+        popup.appendTo($('body'));
+      });
+
+    const popupButton = $('<button>')
+      .text('Reveal answer')
+      .appendTo(popup)
+      .click(function() {
+        if ($(this).text() === 'Close') {
+          popup.remove();
+          element.addClass('hidden');
+          self.seen = true;
+          container.trigger('questionSeen');
+          return;
+        }
+        answer.removeClass('hidden');
+        $(this).text('Close');
+      });
   }
 }

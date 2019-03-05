@@ -23,6 +23,11 @@ main {
   background: #174EA6;
   color: #FCC934;
   justify-content: center; }
+  .category.hidden,
+  .question.hidden {
+    color: #174EA6;
+    user-select: none;
+    pointer-events: none; }
 
 .question {
   cursor: pointer; }

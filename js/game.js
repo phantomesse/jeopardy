@@ -67,6 +67,7 @@ class Game {
       if (!(category in nameToCategoryMap)) {
         nameToCategoryMap[category] = new Category(category);
       }
+      question.category = category;
       nameToCategoryMap[category].questions.push(question);
     }
 
