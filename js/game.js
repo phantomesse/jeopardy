@@ -6,7 +6,7 @@ class Game {
     Game._loadQuestions().then(function(questions) {
       const categories = Game._sortQuestionsIntoCategories(questions);
       const container = $('main')
-      .css({'grid-template-rows' : `repeat(${categories.length}, 1fr)`});
+      .css({'grid-template-columns' : `repeat(${categories.length}, 1fr)`});
       for (let category of categories) {
         category.render(container);
       }
