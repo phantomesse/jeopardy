@@ -2,10 +2,10 @@
 
 class Game {
   constructor() {
-    Game._loadQuestions().then(function(questions) {
+    Game._loadQuestions().then(function (questions) {
       const categories = Game._sortQuestionsIntoCategories(questions);
       const container = $('main')
-      .css({'grid-template-columns' : `repeat(${categories.length}, 1fr)`});
+        .css({ 'grid-template-columns': `repeat(${categories.length}, 1fr)` });
       for (let category of categories) {
         category.render(container);
       }
@@ -15,7 +15,7 @@ class Game {
   // Loads questions from a TSV file.
   static async _loadQuestions() {
     // Load TSV.
-    const questionsTsv = await $.get('data/questions.tsv');
+    const questionsTsv = await $.get(`data/questions.tsv?timestamp=${new Date()}`);
 
     // Parse into Question objects.
     const rows = questionsTsv.split('\n');
@@ -60,7 +60,7 @@ class Game {
   // Sort questions into categories.
   static _sortQuestionsIntoCategories(questions) {
     const nameToCategoryMap = {};
-    
+
     for (let question of questions) {
       const category = question.category;
       if (!(category in nameToCategoryMap)) {
