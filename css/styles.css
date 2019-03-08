@@ -1,4 +1,3 @@
-@import url(//db.onlinewebfonts.com/c/6a891befed317fa85014538362250762?family=Swiss+911);
 @import url("https://fonts.googleapis.com/css?family=Alegreya");
 html,
 body {
@@ -45,7 +44,9 @@ main {
 .question {
   color: #FEC02C;
   cursor: pointer;
-  font: 40px 'Swiss 911'; }
+  font: 50px Impact; }
+  .question ::first-letter {
+    font-size: 40px; }
   .question:not(.hidden):hover {
     background: #3548f2; }
 

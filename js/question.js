@@ -23,7 +23,7 @@ class Question {
 
     const element = $('<div>')
       .addClass('question')
-      .text(`\$${this.score}`)
+      .text(this.score)
       .appendTo(container)
       .click(function() {
         popup.appendTo($('body'));
