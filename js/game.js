@@ -2,7 +2,6 @@
 
 class Game {
   constructor() {
-    const self = this;
     Game._loadQuestions().then(function(questions) {
       const categories = Game._sortQuestionsIntoCategories(questions);
       const container = $('main')
