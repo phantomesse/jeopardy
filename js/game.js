@@ -16,7 +16,7 @@ class Game {
   // Loads questions from a TSV file.
   static async _loadQuestions() {
     // Load TSV.
-    const questionsTsv = await $.get('/data/questions.tsv');
+    const questionsTsv = await $.get('data/questions.tsv');
 
     // Parse into Question objects.
     const rows = questionsTsv.split('\n');
