@@ -13,9 +13,18 @@ class Question {
   render(container) {
     const self = this;
     const popup = $('<div>').addClass('popup');
-    $('<p>')
-      .text(this.question)
-      .appendTo(popup);
+
+    const extension = this.question.substr(this.question.length - 4);
+    if (extension === '.png' || extension === '.jpg') {
+      $('<img>')
+        .attr('src', `data/${this.question}`)
+        .width(500)
+        .appendTo(popup);
+    } else {
+      $('<p>')
+        .text(this.question)
+        .appendTo(popup);
+    }
     const answer = $('<p>')
       .addClass('hidden')
       .text(this.answer)
